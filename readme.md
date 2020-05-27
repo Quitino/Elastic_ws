@@ -4,7 +4,7 @@
 
 ![test pic](./test.png)
 
-![test video](https://www.youtube.com/watch?v=lZbeH9t7DzQ&feature=youtu.be)
+- [test video](https://www.youtube.com/watch?v=lZbeH9t7DzQ&feature=youtu.be)
 
 ## 1.install
 
