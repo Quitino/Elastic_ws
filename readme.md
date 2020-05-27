@@ -25,5 +25,5 @@ roslaunch elastic_bridge ElasticFusionRealsense.launch
 
 笔记本跑的，性能不够，跑到后面就会卡死。
 
-![test video](https://www.youtube.com/watch?v=lZbeH9t7DzQ&feature=youtu.be)
+- [test video](https://www.youtube.com/watch?v=lZbeH9t7DzQ&feature=youtu.be)
 
