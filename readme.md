@@ -27,3 +27,10 @@ roslaunch elastic_bridge ElasticFusionRealsense.launch
 
 - [test video](https://www.youtube.com/watch?v=lZbeH9t7DzQ&feature=youtu.be)
 
+
+##  3.TODO
+
+和这个库无关，备忘一下，使用VINS-Fusion进行轨迹估计，rtab-map建图，相机选用D435i，支持回环检测更新地图.待测试。
+
+- [ref0](http://official-rtab-map-forum.67519.x6.nabble.com/RTAB-map-with-vins-Fusion-td6111.html)
+- [ref1](https://my.oschina.net/u/4377611/blog/3564539)
