@@ -1,6 +1,6 @@
 ##  0.ElasticFusion
 
-使用D435i相机运行。
+使用realsense D435i相机运行。如有帮助到您，点个赞啊.
 
 ![test pic](./test.png)
 
