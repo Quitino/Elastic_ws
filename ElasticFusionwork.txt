@@ -1,0 +1,187 @@
+ElasticFusion ROS包装器：https://github.com/RMonica/elastic_bridge
+注意标签：在2019年有更新：https://github.com/mp3guy/ElasticFusion/tree/update2019
+
+
+主要的安装参考链接：
+https://blog.csdn.net/jthree2012/article/details/80837661
+
+openjdk安装现在已经不能直接安装需要添加ppa：
+
+
+
+github更新支持realsense的版本：
+https://github.com/mp3guy/ElasticFusion/pull/161
+https://github.com/mp3guy/ElasticFusion/issues/164
+
+
+Ubuntu18.04+realsense运行ElasticFusion：
+https://blog.csdn.net/dongzid/article/details/85906109
+
+Ubuntu16.04+realsense运行ElasticFusion：
+https://blog.csdn.net/u010497704/article/details/89490675
+
+catkin_make:报错
+ Project 'tf_conversions' specifies '/usr/include/eigen3' as an include dir,
+  which is not found.  It does neither exist as an absolute directory nor in
+  '${{prefix}}//usr/include/eigen3'.  Check the website
+  'http://www.ros.org/wiki/tf_conversions' for information and consider
+  reporting the problem.
+
+
+
+解决：
+
+https://blog.csdn.net/bluewhalerobot/article/details/73658167
+
+
+
+catkin_make报错：
+CMake Error at /opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
+  Could not find a package configuration file provided by "pcl_conversions"
+  with any of the following names:
+
+    pcl_conversionsConfig.cmake
+    pcl_conversions-config.cmake
+
+  Add the installation prefix of "pcl_conversions" to CMAKE_PREFIX_PATH or
+  set "pcl_conversions_DIR" to a directory containing one of the above files.
+  If "pcl_conversions" provides a separate development package or SDK, be
+  sure it has been installed.
+Call Stack (most recent call first):
+  elastic_bridge/CMakeLists.txt:7 (find_package)
+
+解决：
+sudo apt-get update
+sudo apt-get install ros- kinetic-pcl-conversions
+sudo apt-get install ros-kinetic-pcl-ros
+
+
+另外一种方式（没有测试过）：
+try this:
+sudo apt-get install ros-kinetic-perception
+
+参考链接：
+https://answers.ros.org/question/235891/how-to-remove-this-error-in-pcl/
+
+
+
+
+
+
+
+一些等待测试的RGBD-SLAM：
+https://github.com/WangYuTum/odometry
+
+
+https://www.youtube.com/watch?v=ehwiFkmFQ7Q&list=PLHXK5lYExZTCxg1EXLcGwWAizfMbJsk9Q&index=58&t=0s
+
+https://github.com/ShudaLi/HDRFusion/tree/master/hdr_fusion
+
+
+
+
+
+https://github.com/occipital/OpenNI2
+
+
+
+
+运行报错： error: GLSL 3.30 is not supported. Supported versions are: 1.10, 1.20, 1.30, 1.00 ES, 3.00 ES, 3.10 ES, and 3.20 ES
+
+疑似解决办法：
+https://www.geek-share.com/detail/2731521414.html
+
+在软件与更新里面选择显卡的驱动：
+然后切换为NVIDIA显卡：
+nvidia-settings
+(目前是使用的集成显卡，如果需要运行该程序，则需要改为NVIDIA显卡显示。20200408)
+
+sudo apt install nvidia-prime
+
+程序“prime-select”尚未安装。 您可以使用以下命令安装：
+sudo apt install nvidia-prime
+
+选择NVIDIA显卡
+prime-select nvidia
+
+
+
+运行时报错：
+CUDA driver version is insufficient for CUDA runtime version
+CUDA版本不对
+妈的是编译的时候用的CUDA10，运行的时候用的CUDA8，肯定报错了，艹！！！
+https://stackoverflow.com/questions/41409842/ubuntu-16-04-cuda-8-cuda-driver-version-is-insufficient-for-cuda-runtime-vers
+
+https://askubuntu.com/questions/858030/nvidia-prime-in-nvidia-x-server-settings-in-16-04-1
+
+
+
+sudo apt-get remove --purge nvidia*
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+
+
+
+NVIDIA:384
+sudo apt-get install nvidia-384 nvidia-settings nvidia-prime
+CUDA:8.0
+
+NVIDIA:430
+sudo apt-get install nvidia-430 nvidia-settings nvidia-prime
+CUDA:10.0
+
+https://blog.csdn.net/m0_38007695/article/details/103456043
+
+查看推荐NVIDIA驱动版本
+sudo ubuntu-drivers devices
+[sudo] ipsg 的密码： 
+对不起，请重试。
+[sudo] ipsg 的密码： 
+== /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
+modalias : pci:v000010DEd00001C20sv000017AAsd000039B9bc03sc00i00
+vendor   : NVIDIA Corporation
+driver   : nvidia-418 - third-party free
+driver   : nvidia-410 - third-party free
+driver   : xserver-xorg-video-nouveau - distro free builtin
+driver   : nvidia-415 - third-party free
+driver   : nvidia-430 - third-party free recommended
+driver   : nvidia-384 - distro non-free
+
+
+
+
+[ INFO] [1585369659.386317015]: elastic_bridge: first camera info received.
+[ INFO] [1585369659.388240791]: elastic_bridge: Initializing Elastic Fusion...
+[ INFO] [1585369659.388354602]: elastic_bridge: w 640, h 480, fx 614.931458, fy 615.194458, cx 325.483673, cy 241.891052
+[ INFO] [1585369659.399827667]: init_fake_opengl_context: Initializing fake OpenGL context...
+[ INFO] [1585369659.405878399]: init_fake_opengl_context: Number of framebuffer configurations: 20
+[ INFO] [1585369659.477730869]: init_fake_opengl_context: Fake context initialized ok.
+[ INFO] [1585369661.519750159]: elastic_bridge: Elastic Fusion initialized.
+Your GPU "GeForce GTX 1060 with Max-Q Design" isn't in the ICP Step performance database, please add it
+Your GPU "GeForce GTX 1060 with Max-Q Design" isn't in the RGB Step performance database, please add it
+Your GPU "GeForce GTX 1060 with Max-Q Design" isn't in the RGB Res performance database, please add it
+Your GPU "GeForce GTX 1060 with Max-Q Design" isn't in the SO3 Step performance database, please add it
+
+
+
+
+NODES
+  /
+    save_pcl (elastic_bridge/save_pcl)
+
+ROS_MASTER_URI=http://localhost:11311
+
+process[save_pcl-1]: started with pid [7317]
+[ INFO] [1585370598.283102022]: Waiting for action server to start.
+[ INFO] [1585370598.502980701]: Action server started, sending goal.
+[ INFO] [1585370599.305853910]: Action finished: SUCCEEDED
+[ INFO] [1585370599.305926287]: Saved point cloud in: ./pointcloud.pcd
+[ INFO] [1585370599.312250073]: Saved GUIDs in: ./pointcloud.corresp
+[save_pcl-1] process has finished cleanly
+log file: /home/ipsg/.ros/log/6049571e-70ac-11ea-bba5-646e69f48e3d/save_pcl-1*.log
+all processes on machine have died, roslaunch will exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+
+
